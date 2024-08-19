@@ -17,8 +17,8 @@
 
 AsyncWebServer server(80);
 
-const int LED1 = 26;
-const int LED2 = 27;
+const int LED1 = 0;
+const int LED2 = 1;
 
 bool led1State = false;
 bool led2State = false;
@@ -73,10 +73,8 @@ String createHtml() {
 void setup() {
 
     Serial.begin(115200);
-    pinMode(LED1, OUTPUT);
-    pinMode(LED2, OUTPUT);
-
     Serial.print("Connecting to WiFi... ");
+
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, password, WIFI_CHANNEL);
     if (WiFi.waitForConnectResult() != WL_CONNECTED) {
